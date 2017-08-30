@@ -30,4 +30,7 @@ group :development, :test do
 
   #images
   gem 'cloudinary'
+
+  #dates
+  gem 'bootstrap-datepicker-rails'
 end

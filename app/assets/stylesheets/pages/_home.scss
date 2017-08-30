@@ -13,16 +13,25 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 70px;
-  font-weight: bold;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  font-size: 120px;
+  font-weight: light;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
   color: white;
   text-align: center;
+  text-outline: black;
 }
 .banner p {
   font-size: 25px;
   font-weight: lighter;
   color: rgb(255, 255, 255);
-  opacity: 0.6;
+  //opacity: 0.6;
   margin-bottom: 30px;
+  color: $gray;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  text-align: center
 }
+
+.btn {
+  justify-content: center;
+}
+

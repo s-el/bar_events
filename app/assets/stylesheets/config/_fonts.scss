@@ -1,10 +1,10 @@
 // Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Bitter|Raleway");
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300|Yanone+Kaffeesatz:300");
 
 
 // Define fonts for body and headers
-$headers-font: "Raleway", "sans-serif";
-$body-font: "Bitter", "serif";
+$headers-font: "Yanone Kaffeesatz", "sans-serif";
+$body-font: "Ubuntu", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
@@ -14,4 +14,4 @@ $body-font: "Bitter", "serif";
 //        font-url('FontFile.woff') format('woff'),
 //        font-url('FontFile.ttf') format('truetype')
 // }
-// $my-font: "Font Name";
+//

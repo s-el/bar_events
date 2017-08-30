@@ -1,0 +1,26 @@
+<% @bars.each do |bar| %>
+<div class="container">
+  <div class="list-card">
+    <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" alt="">
+    <div class="list-details">
+      <div class="list-name"><%= bar.name %>
+      </div>
+      <button class="list-callback">
+        See Events
+      </button>
+      <div class='list-landmark'> <%=bar.website%> </div>
+      <div class="list-rooms"><%=bar.description%></div>
+      <div class="list-price">4.0 stars</div>
+      <div class='list-bottom'>
+        <div class='list-bottom-section'>
+          <span>Location</span>
+            <span><%=bar.location%></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end%>
+
+
+

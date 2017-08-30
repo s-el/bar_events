@@ -6,11 +6,39 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-require 'faker'
+puts 'Cleaning database...'
+Event.destroy_all
+Bar.destroy_all
+
+puts 'Creating users...'
+5.times do
+  user = User.new(
+    email: Faker::Internet.email,
+    password: "password"
+    # password_confirmation: "password"
+    )
+  user.save!
+end
+
 
 puts 'Creating bars...'
-5.time do
+10.times do
   bar = Bar.new(
-    name:
-    location: "#{Faker::Address.street_address}, #{Faker::Address.city}"
+    name: Faker::Friends.location,
+    location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    description: Faker::Lorem.paragraph,
+    website: Faker::Internet.url,
+    user: User.all.order('RANDOM()').first()
     )
+  bar.save!
+end
+
+puts 'Creating events...'
+20.times do
+  event = Event.new(
+    title: Faker::HowIMetYourMother.catch_phrase,
+    category: ['live music', 'trivia', 'poetry reading', 'sports', 'comedy'].sample,
+    bar: Bar.all.order('RANDOM()').first()
+    )
+  event.save!
+end
