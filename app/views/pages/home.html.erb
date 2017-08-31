@@ -3,8 +3,8 @@
   <div class="banner-content">
     <h1>After5</h1>
     <p>Be entertained while you drink</p>
-    <%= form_tag("/search", method: "get") do %>
-    <%= text_field_tag(:term, nil, placeholder: "Keyword") %>
+    <%= form_tag("/events", method: "get") do %>
+    <%= text_field_tag(:keyword, nil, placeholder: "Keyword") %>
     <%= text_field_tag(:location, nil, placeholder: "Location") %>
     <%= text_field_tag(:date, nil, class: "datepicker") %>
     <%= submit_tag("Search") %>

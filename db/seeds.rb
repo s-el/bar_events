@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts 'Cleaning database...'
+
 Event.destroy_all
 Bar.destroy_all
 
@@ -22,10 +23,23 @@ end
 
 
 puts 'Creating bars...'
-10.times do
+location_choices =
+['786 St. Johns Pl, Brooklyn, NY',
+  '1168 Union St., Brooklyn, NY', #works
+  '3 Lisa Court, Yorktown Heights, NY', #works
+  'Crown Inn, Crown Heights, Brooklyn',
+  'The Library Bar, New York City', #works
+  'The Dead Rabbit, Financial District, NY',
+  'Carroll Gardens, NY',
+  'Nostrand Bar, Crown Heights, Brooklyn',
+  'Two Saints, Crown Heights, Brooklyn', #works
+  'East Village, New York' #works
+  ]
+location_choices.size.times do
   bar = Bar.new(
     name: Faker::Friends.location,
-    location: "#{Faker::Address.street_address}, #{Faker::Address.city}",
+    location: location_choices.delete(location_choices.sample),
+    # location: "#{(500..3000).to_a.sample} #{['Union Street', 'Broadway 5th Ave', 'Bedford Ave'].sample} New York City",
     description: Faker::Lorem.paragraph,
     website: Faker::Internet.url,
     user: User.all.order('RANDOM()').first()
