@@ -1,34 +1,32 @@
-<div class="container">
-  <div class="row">
-    <div class="event-photo">
-      <img src="https://cdn.liquor.com/wp-content/uploads/2015/03/hub_classic_cocktail_margarita.jpg" alt="">
+<!-- <div class="container"> -->
+<!-- <div class="row"> -->
+  <div class="event-photo">
+    <img src="https://cdn.liquor.com/wp-content/uploads/2015/03/hub_classic_cocktail_margarita.jpg" alt="">
+  </div>
+  <h1><%= @event.title %></h1>
+  <h3><%= @event.bar.name %></h3>
+  <p><%= @event.category %></p>
+  <p><%= @event.description %></p>
+  <p><%= @event.date %></p>
+  <p><%= @event.start_time %></p>
+  <p><%= @event.end_time %></p>
+
+
+  <div id="map" style="width: 300px; height: 300px;"></div>
+    <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @event_coordinates.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            handler.getMap().setZoom(10);
+            });
+          });
+        <% end %>
+      <% end %>
     </div>
-    <h1><%= @event.title %></h1>
-    <h3><%= @event.bar.name %></h3>
-    <p><%= @event.category %></p>
-    <p><%= @event.description %></p>
-    <p><%= @event.date %></p>
-    <p><%= @event.start_time %></p>
-    <p><%= @event.end_time %></p>
-
-    <div id="map" style="width: 300px; height: 300px;"></div>
-
-  <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-      $(document).ready(function() {
-        var handler = Gmaps.build('Google');
-        handler.buildMap({ internal: { id: 'map' } }, function() {
-          markers = handler.addMarkers(<%= raw @event_coordinates.to_json %>);
-          handler.bounds.extendWith(markers);
-          handler.fitMapToBounds();
-          handler.getMap().setZoom(10);
-      });
-    });
-  <% end %>
-<% end %>
-
-
-</div>
-    </div>
-</div>
+  <!-- </div> -->
+<!-- </div> -->
 
