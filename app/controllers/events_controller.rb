@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @events = Event.all
+    @events = Event.joins(:bar).where.not('bars.latitude IS NULL AND bars.longitude IS NULL')
     if params[:keyword]
       @events = Event.where('category LIKE ?', "%#{params[:keyword]}%").all
     end

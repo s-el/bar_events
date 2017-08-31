@@ -11,21 +11,24 @@
     <p><%= @event.start_time %></p>
     <p><%= @event.end_time %></p>
 
-</div>
-    </div>
-</div>
+    <div id="map" style="width: 300px; height: 300px;"></div>
 
-<div id="map"></div>
-    <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @event_coordinates.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        handler.getMap().setZoom(2);
+  <% content_for(:after_js) do %>
+    <%= javascript_tag do %>
+      $(document).ready(function() {
+        var handler = Gmaps.build('Google');
+        handler.buildMap({ internal: { id: 'map' } }, function() {
+          markers = handler.addMarkers(<%= raw @event_coordinates.to_json %>);
+          handler.bounds.extendWith(markers);
+          handler.fitMapToBounds();
+          handler.getMap().setZoom(10);
       });
     });
   <% end %>
 <% end %>
+
+
+</div>
+    </div>
+</div>
+
