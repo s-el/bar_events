@@ -1,34 +1,39 @@
-<% @events.each do |event| %>
 <div class="container">
-  <div class="list-card">
-    <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" alt="">
-    <div class="list-details">
-      <div class="list-name"><%= event.title %>
-      </div>
-      <button class="list-callback">
-        See Bar
-      </button>
-      <div class='list-landmark'> <%=event.bar.name%> </div>
-      <div class="list-rooms"><%=event.description%></div>
-      <div class="list-price"><%=event.category%></div>
-      <div class='list-bottom'>
-        <div class='list-bottom-section'>
-          <span>Start time</span>
-            <span><%=event.start_time%></span>
-        </div>
-        <div class='list-bottom-section'>
-          <span>End time</span>
-            <span><%=event.end_time%></span>
-        </div>
-        <div class='list-bottom-section'>
-          <span>Rating</span>
-            <span>4 stars</span>
+  <div class="row" id ="event_card">
+  <% @events.each do |event| %>
+    <div class="row">
+      <div class="list-card">
+        <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" alt="">
+        <div class="list-details">
+          <div class="list-name"><%= event.title %>
+          </div>
+          <button class="list-callback">
+            See Bar
+          </button>
+          <div class='list-landmark'> <%=event.bar.name%> </div>
+          <div class="list-rooms"><%=event.description%></div>
+          <div class="list-price"><%=event.category%></div>
+          <div class='list-bottom'>
+            <div class='list-bottom-section'>
+              <span>Start time</span>
+              <span><%=event.start_time%></span>
+            </div>
+            <div class='list-bottom-section'>
+              <span>End time</span>
+              <span><%=event.end_time%></span>
+            </div>
+            <div class='list-bottom-section'>
+              <span>Rating</span>
+              <span>4 stars</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <% end%>
   </div>
 </div>
-<% end%>
+
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
