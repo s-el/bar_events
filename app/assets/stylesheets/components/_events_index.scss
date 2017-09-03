@@ -1,4 +1,24 @@
-#map {
-display: flex;
-float: left;
+
+.index-layout {
+  display: flex;
+  margin-top: 15px;
+  .results {
+    flex-grow: 1;
+  }
+
+  #map {
+    flex: 0 0 450px;
+    height: 100vh;
+    position: sticky !important;
+    top: 0 !important;
+    margin-right: 10px;
+    margin-left: 50px;
+
+  }
+}
+
+@media(max-width: 700px) {
+  .index-layout {
+    flex-direction: column-reverse;
+  }
 }

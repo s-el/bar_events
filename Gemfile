@@ -43,4 +43,7 @@ group :development, :test do
   gem "rails-assets-underscore"
 end
 
+#Facebook login
+gem 'omniauth-facebook'
+
 end
