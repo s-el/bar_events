@@ -17,6 +17,7 @@ Devise.setup do |config|
     secure_image_url: true
   end
 
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
