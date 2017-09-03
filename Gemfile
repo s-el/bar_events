@@ -31,12 +31,13 @@ gem 'geocoder'
 gem 'coffee-rails'
 gem 'gmaps4rails'
 
-#Facebook authentication
-gem 'omniauth-facebook'
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
 end
+
+#Facebook authentication
+gem 'omniauth-facebook'
+
 
 group :development, :test do
   gem 'pry-byebug'
