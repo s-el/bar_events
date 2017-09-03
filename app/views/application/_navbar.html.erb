@@ -1,10 +1,11 @@
+<div class="navbar">
 <div class="navbar-wagon">
 
 <!-- return to home -->
   <div class="navbar-wagon-item">
-    <%= link_to root_path, class: "navbar-wagon-item" do %>
-      <p>After5</p>
-    <%end %>
+    <%= link_to root_path class: "navbar-wagon-item navbar-wagon-link" do%>
+    After5
+    <%end%>
   </div>
   <div class="navbar-wagon-right">
     <%= link_to "Bars", "bars", class: "navbar-wagon-item navbar-wagon-link" %>
@@ -42,5 +43,14 @@
     <% end %>
   </div>
   </div>
-</div>
+  <div class="navbar-search">
+    <%= form_tag("/events", class: "form-inline", method: "get") do %>
+    <%= text_field_tag(:keyword, nil, placeholder: "Keyword", class: "form-control") %>
+    <%= text_field_tag(:location, nil, placeholder: "Location", class: "form-control") %>
+    <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
+    <%= submit_tag("Search", class: "btn") %>
+  <% end %>
+  </div>
+  </div>
+
 

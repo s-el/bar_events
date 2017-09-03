@@ -1,18 +1,20 @@
-<div class="container">
-  <div class="row" id ="event_card">
-  <% @events.each do |event| %>
-    <div class="row">
+<div class="index-layout">
+  <div class="results">
+    <% @events.each do |event| %>
       <div class="list-card">
-        <img src="http://www.jennybeaumont.com/wp-content/uploads/2015/03/placeholder.gif" alt="">
+        <div class="date">
+          <h1>16</h1>
+          <h4>Sept</h4>
+        </div>
         <div class="list-details">
-          <div class="list-name"><%= event.title %>
-          </div>
+            <h3><%= event.title %></h3>
+            <p><%=event.bar.name%></p>
+            <p><%=event.description%></p>
+            <p><%=event.category%></p>
           <button class="list-callback">
-            See Bar
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+            <%= link_to %>
           </button>
-          <div class='list-landmark'> <%=event.bar.name%> </div>
-          <div class="list-rooms"><%=event.description%></div>
-          <div class="list-price"><%=event.category%></div>
           <div class='list-bottom'>
             <div class='list-bottom-section'>
               <span>Start time</span>
@@ -29,27 +31,27 @@
           </div>
         </div>
       </div>
-    </div>
     <% end%>
   </div>
+  <div id="map"></div>
 </div>
 
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+
 
 <% content_for(:after_js) do %>
-  <%= javascript_tag do %>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
+<%= javascript_tag do %>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
       });
     });
   <% end %>

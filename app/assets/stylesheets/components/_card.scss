@@ -1,34 +1,53 @@
-.container{
-  width: 750px;
-  margin: 0 auto;
-  background-color:#fff;
-  overflow:auto;
-  .list-card{
-    padding: 15px;
-    overflow:auto;
-    img{
-    width: 240px;
-    height: 180px;
-    background-color:green;
-    border:0;
+// *{
+//   border: solid 1px red;
+// }
+
+.list-card{
+  margin-left: 50px;
+  display: flex;
+  height: 220px;
+  position: relative;
+  margin-bottom: 30px;
+  border-bottom: solid 1px #d3d3d3;
+  background-color: white;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 15px;
+  .date{
+    width: 125px;
+    height: 175px;
     display:inline-block;
-      float:left;
-      margin-right: 18px;
+    margin-right: 18px;
+    background-color: #67001a;
+    color: white;
+      h1 {
+        font-size: 84px;
+        text-align: center;
+      }
+      h4 {
+        font-size: 28px;
+        text-align: center;
+        line-height: 4px
+      }
   }
+  button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color:white;
+    border: none;
+    text-size: 40px;
   }
 }
+
 .list-label{
   background-color:#1fc055;
   display:inline-block;
   position:absolute;
   margin-left: -5px;
-  margin-top: 10px;
   font-size:12px;
   padding: 4px;
   color:#fff;
-}
-.list-details{
-  float:none;
 }
 
 .list-name{
@@ -45,15 +64,9 @@
   font-size:12px;
 }
 
-.list-price{
-  font-size:20px;
-  margin-top: 16px;
-}
-
 .list-bottom{
   display:inline-block;
   overflow:auto;
-  margin-top: 26px;
   .list-bottom-section{
     width: 120px;
     box-sizing:border-box;
@@ -72,10 +85,6 @@
       display:block;
     }
   }
-}
-
-.list-callback, .list-shortlist{
-  float:right;
 }
 
 .list-shortlist{
