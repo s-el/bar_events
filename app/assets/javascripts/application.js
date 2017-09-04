@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-datepicker
+//= require bootstrap-timepicker
 //= require underscore
 //= require gmaps/google
+//= require simple_form_extension
 //= require_tree .

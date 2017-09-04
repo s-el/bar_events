@@ -25,6 +25,8 @@ gem 'cloudinary'
 
 #dates
 gem 'bootstrap-datepicker-rails'
+# gem 'rails-assets-bootstrap-timepicker', source: 'https://rails-assets.org'
+gem 'bootstrap-timepicker-rails-addon', '~> 0.5.1'
 
 #geocode
 gem 'geocoder'
@@ -37,6 +39,9 @@ end
 
 #Facebook authentication
 gem 'omniauth-facebook'
+
+#Forms
+gem 'simple_form_extension'
 
 
 group :development, :test do

@@ -12,8 +12,9 @@
             <p><%=event.description%></p>
             <p><%=event.category%></p>
           <button class="list-callback">
+          <%= link_to event_path(event) do%>
             <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            <%= link_to %>
+            <%end %>
           </button>
           <div class='list-bottom'>
             <div class='list-bottom-section'>

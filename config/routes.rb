@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :bars, only: [:index, :show, :create, :update]
-  resources :events, only: [:index, :show, :create, :update]
+  resources :bars, only: [:index, :show, :new, :create, :update]
+  resources :events, only: [:index, :show, :new, :create, :update]
 end
 
