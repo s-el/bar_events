@@ -1,12 +1,14 @@
 
 <div class="my-container">
-  <h1>After5</h1>
+  <h1>After <strong>5</strong></h1>
   <p>Be entertained while you drink</p>
   <%= form_tag("/events", class: "form-inline", method: "get") do %>
     <%= text_field_tag(:keyword, nil, placeholder: "Keyword", class: "form-control") %>
     <%= text_field_tag(:location, nil, placeholder: "Location", class: "form-control") %>
     <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
-    <%= submit_tag("Search", class: "btn") %>
+    <%= button_tag(type: "submit", class: "btn") do %>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <% end %>
   <% end %>
 </div>
 

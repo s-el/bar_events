@@ -22,7 +22,7 @@
     background-image: url('https://images.unsplash.com/photo-1481833761820-0509d3217039?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=e09f080b8da02326cf52c33649fd52d8');
     background-repeat: no-repeat;
     background-position: 50% 0;
-    background-size: contain;
+    background-size: cover;
     top: 0;
 }
 .my-container h1 {
@@ -57,12 +57,18 @@
 
 .my-container .form-control {
   width: 300px;
-  background-color: rgba(255, 255, 255, .1);
+  background-color: rgba(0, 0, 0, .5);
   border: none;
+  color: rgba(200, 200, 200, 1);
 }
 
 .my-container .datepicker {
   width: 200px;
+  background-color:black;
+}
+.datepicker.datepicker-dropdown.dropdown-menu {
+  background-color:rgba(0,0,0, .8) !important;
+  color: white;
 }
 
 .my-container .btn {
@@ -71,15 +77,15 @@
   border-radius: 4px;
   transition: background 0.3s ease;
   // background: #67001a;
+  width: 60px;
   background-color: transparent;
-  width: 100px;
   border: 1px solid #8B2635;
   height: auto;
+  color: white;
   &:hover {
-    opacity: 1;
+    opacity: 6;
     background: #8B2635;
     text-decoration: none;
-    color: white;
   }
 }
 
