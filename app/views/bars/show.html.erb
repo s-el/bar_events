@@ -1,23 +1,11 @@
-<!-- <div class="container"> -->
-<!-- <div class="row"> -->
 <div class="event-photo" style="background-image: url(https://images.unsplash.com/photo-1433785069405-791b480d0a62?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=278f3a13fa6a61d3af44f4a553cab4c0) ">
 </div>
 
 <div class="container">
-  <div class="event-container">
-    <div class="details">
-      <h1><%= @event.title %></h1>
-      <p><%= @event.category %></p>
-      <p><%= @event.description %></p>
-      <p><%= @event.date %></p>
-      <p><%= @event.start_time %></p>
-      <p><%= @event.end_time %></p>
-    </div>
-
     <div class="bar-details">
-      <h3><%= @event.bar.name %></h3>
-      <p><%= @event.bar.location%></p>
-      <p><%= @event.bar.description %></p>
+      <h3><%= @bar.name %></h3>
+      <p><%= @bar.location%></p>
+      <p><%= @bar.description %></p>
 
 
       <div id="map" style="width: 300px; height: 300px;"></div>
@@ -37,23 +25,17 @@
       </div>
     </div>
     <div class = "return">
-  <%= link_to events_path do%>
+  <%= link_to bars_path do%>
   <ul class = "list-inline">
     <li>
       <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
       <%end %>
     </li>
     <li>
-      <p>See all Events</p>
+      <p>See all Bars</p>
     </li>
   </ul>
 </div>
   </div>
 
 </div>
-
-
-
-
-
-

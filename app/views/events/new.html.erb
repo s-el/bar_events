@@ -1,0 +1,31 @@
+<div class="container">
+  <%= simple_form_for(@event) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title %>
+  <%= f.association :bar, collection: @bars %>
+  <%= f.input :category %>
+  <%= f.input :description %>
+    <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
+     <div class="date_time">
+        <div class="input-group bootstrap-timepicker timepicker" class ="form-inline">
+        <label for="start_time">Start time</label>
+        <input id="start_time" type="text" class="form-control input-small" placeholder="Start time">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+
+    <div class="input-group bootstrap-timepicker timepicker" class ="form-inline">
+      <label for="end_time">End time</label>
+      <input id="end_time" type="text" class="form-control input-small" placeholder="End time">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+    </div>
+  </div>
+    <%= f.button :submit %>
+  <% end %>
+
+
+
+
+
+
+

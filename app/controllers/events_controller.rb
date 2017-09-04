@@ -24,6 +24,14 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new()
+    @bars = Bar.where(user: current_user)
+  end
+
+  def create
+    @event = Event.new(event_params)
+    @bars = Bar.where(user: current_user)
+    @event.save!
+    redirect_to event_path(@event)
   end
 
   private

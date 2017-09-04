@@ -1,0 +1,27 @@
+
+<div class="container">
+  <%= simple_form_for(@bar) do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.input :location %>
+  <%= f.input :description %>
+  <%= f.input :website %>
+
+  <div class="input-group bootstrap-timepicker timepicker">
+    <input id="mon_start" type="text" class="form-control input-small">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+  </div>
+  </div>
+ <%= f.button :submit %>
+<% end %>
+
+<% content_for :javascript do %>
+<script>
+  $("#bar_name").click(function() {
+  console.log("only runs on the contact page!")
+})
+</script>
+
+<%end %>
+
