@@ -12,7 +12,8 @@ class EventsController < ApplicationController
     end
 
     if params[:date].present?
-      conditions[:date] = params[:date]
+      date = Date.strptime(params[:date], "%m/%d/%Y")
+      conditions[:date] = date
     end
 
 

@@ -3,8 +3,8 @@
     <% @events.each do |event| %>
       <div class="list-card">
         <div class="date">
-          <h1>16</h1>
-          <h4>Sept</h4>
+          <h1><%=event.date.strftime("%d")%></h1>
+          <h4><%=event.date.strftime("%b")%></h4>
         </div>
         <div class="list-details">
             <h3><%= event.title %></h3>

@@ -52,7 +52,8 @@ puts 'Creating events...'
   event = Event.new(
     title: Faker::HowIMetYourMother.catch_phrase,
     category: ['live music', 'trivia', 'poetry reading', 'sports', 'comedy'].sample,
-    bar: Bar.all.order('RANDOM()').first()
+    bar: Bar.all.order('RANDOM()').first(),
+    date: "2017-09-" + (10..14).to_a.sample.to_s
     )
   event.save!
 end
