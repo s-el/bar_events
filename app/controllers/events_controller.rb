@@ -2,16 +2,39 @@ class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @events = Event.joins(:bar).where.not('bars.latitude IS NULL AND bars.longitude IS NULL')
-    if params[:keyword]
-      @events = Event.where('category LIKE ?', "%#{params[:keyword]}%").all
+    conditions = {}
+    query = params[:keyword].presence || "*"
+
+    if params[:location].present?
+      latitude, longitude = Geocoder.coordinates(params[:location])
+
+      conditions[:location] = { near: { lat: latitude, lon: longitude }, within: "5mi" }
     end
 
-    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
-      marker.lat event.bar.latitude
-      marker.lng event.bar.longitude
-      # marker.infowindow render_to_string(partial: "/events/map_box", locals: { event: event })
+    if params[:date].present?
+      conditions[:date] = params[:date]
     end
+
+
+    @search = Event.search(query, where: conditions)
+    @events = @search.results
+
+    if @events.blank?
+      @events = Event.joins(:bar).where.not('bars.latitude IS NULL AND bars.longitude IS NULL')
+      # @events = Event.all
+    else
+      @events
+    end
+        # if params[:keyword]
+          # @events = Event.where('category LIKE ?', "%#{params[:keyword]}%").all
+
+
+        @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+          marker.lat event.bar.latitude
+          marker.lng event.bar.longitude
+          # marker.infowindow render_to_string(partial: "/events/map_box", locals: { event: event })
+        end
+
   end
 
   def show
@@ -29,7 +52,22 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @date = (params[:date])
     @bars = Bar.where(user: current_user)
+    if @event.save
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
+  end
+
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event = Event.update(event_params)
     @event.save!
     redirect_to event_path(@event)
   end
@@ -37,7 +75,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:bar).permit(:category, :title, :description, :date,
-    :start_time, :end_time, :bar_id)
+    params.require(:event).permit(:category, :title, :description, :date, :start_time, :end_time, :bar_id)
   end
 end

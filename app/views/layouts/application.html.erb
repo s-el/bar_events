@@ -9,7 +9,13 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+
+    <% if content_for?(:navbar_app) %>
+      <%= yield(:navbar_app) %>
+    <% else %>
     <%= render 'navbar' %>
+    <% end %>
+
     <%= render 'flashes' %>
     <%= yield %>
 

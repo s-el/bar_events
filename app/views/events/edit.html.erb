@@ -6,8 +6,7 @@
   <%= f.association :bar, collection: @bars %>
   <%= f.input :category %>
   <%= f.input :description %>
-  <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
-  <%#= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
+    <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
      <div class="date_time">
         <div class="input-group bootstrap-timepicker timepicker" class ="form-inline">
         <label for="start_time">Start time</label>
@@ -23,10 +22,3 @@
   </div>
     <%= f.button :submit %>
   <% end %>
-
-
-
-
-
-
-

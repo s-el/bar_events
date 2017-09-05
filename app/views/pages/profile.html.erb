@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="bars">
+    <h2>Your Bars</h2>
+      <% unless @bars.nil?%>
+      <ul>
+       <% @bars.each do |bar| %>
+         <li><%= bar.name %></li>
+         <li><%= link_to "Edit", edit_bar_path(bar) %></li>
+        <%end %>
+      </ul>
+     <%end %>
+     <li><%= link_to "Add bar", new_bar_path %></li>
+    </div>
+    <h2>Your Events</h2>
+     <div class="events">
+     <% unless @events.nil?%>
+      <ul>
+       <% @events.each do |event| %>
+       <li><%= event.title %></li>
+       <li><%= link_to "Edit", edit_event_path(event) %></li>
+       <%end %>
+       </ul>
+       <%end %>
+       <li><%= link_to "Add event", new_event_path %></li>
+    </div>
+  </div>
+</div>
