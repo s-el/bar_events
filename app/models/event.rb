@@ -6,6 +6,9 @@ class Event < ApplicationRecord
 
   searchkick locations: [:location]
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   def search_data
     attributes.merge(location: { lat: bar.latitude, lon: bar.longitude })
   end

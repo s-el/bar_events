@@ -45,6 +45,8 @@ gem 'simple_form_extension'
 
 #Search
 gem 'searchkick', '~> 1.3'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 
 group :development, :test do

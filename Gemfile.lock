@@ -79,6 +79,11 @@ GEM
       elasticsearch-transport (= 5.0.4)
     elasticsearch-api (5.0.4)
       multi_json
+    elasticsearch-model (5.0.1)
+      activesupport (> 3)
+      elasticsearch (~> 5)
+      hashie
+    elasticsearch-rails (5.0.1)
     elasticsearch-transport (5.0.4)
       faraday
       multi_json
@@ -267,6 +272,8 @@ DEPENDENCIES
   cloudinary
   coffee-rails
   devise
+  elasticsearch-model
+  elasticsearch-rails
   faker
   figaro
   font-awesome-sass
