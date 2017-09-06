@@ -28,6 +28,8 @@
     top: 20px !important;
     right: 0px !important;
     padding: 10px 60px;
+    margin-right: -17px;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -64,17 +66,45 @@
   font-weight: bolder;
 }
 
-i{
-  padding-right: 10px;
-  font-size: 24px;
-  color: #8B2635;
-}
 .fa-star {
   color: #ffd700;
+  font-size: 24px;
 }
 
 .fa-eur {
   color:black;
+  font-size: 24px;
 }
+
+.fa-map-marker{
+  padding-right: 10px;
+  font-size: 24px;
+  color: #8B2635;
+}
+
+.fa-map-marker{
+  padding-right: 10px;
+  font-size: 24px;
+  color: #8B2635;
+}
+
+.fa-globe {
+  padding-right: 10px;
+  font-size: 24px;
+  color: #8B2635;
+}
+
+.fa-clock-o {
+  padding-right: 10px;
+  font-size: 24px;
+  color: #8B2635;
+}
+
+.fa-calendar-o {
+  padding-right: 10px;
+  font-size: 24px;
+  color: #8B2635;
+}
+
 
 

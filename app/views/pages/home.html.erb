@@ -5,11 +5,11 @@
 
 <div class="my-container">
   <h1>After <strong>5</strong></h1>
-  <p>Be entertained while you drink</p>
+  <p>Find events at bars near you</p>
   <%= form_tag("/events", class: "form-inline", method: "get") do %>
-    <%= text_field_tag(:keyword, nil, placeholder: "Keyword", class: "form-control") %>
-    <%= text_field_tag(:location, nil, placeholder: "Location", class: "form-control") %>
-    <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
+    <%= text_field_tag(:keyword, nil, placeholder: "What are you up for? (trivia, music)", class: "form-control") %>
+    <%= text_field_tag(:location, nil, placeholder: "Where?", class: "form-control") %>
+    <%= text_field_tag(:date, nil, placeholder: "When?", class: "datepicker form-control") %>
     <%= button_tag(type: "submit", class: "btn") do %>
       <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>

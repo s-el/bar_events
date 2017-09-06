@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :attendance
+  belongs_to :bar
 
   # validates :content, presence: true
 end

@@ -60,11 +60,18 @@
   background-color: rgba(0, 0, 0, .5);
   border: none;
   color: rgba(200, 200, 200, 1);
+  height: 40px;
+  padding-right: 10px;
+  border: solid .5px rgba(237, 237, 237, .2);
+  border-radius: 4px;
 }
 
 .my-container .datepicker {
   width: 200px;
   background-color:black;
+  padding: 20px;
+  border-radius: 4px !important;
+  height: 40px;
 }
 .datepicker.datepicker-dropdown.dropdown-menu {
   background-color:rgba(0,0,0, .8) !important;

@@ -13,20 +13,22 @@
     <%= text_field_tag(:keyword, params[:keyword], placeholder: "Keyword", class: "form-control") %>
     <%= text_field_tag(:location, params[:location], placeholder: "Location", class: "form-control") %>
     <%= text_field_tag(:date, params[:date], placeholder: "Date", class: "datepicker form-control") %>
-    <%= button_tag(type: "submit", class: "btn") do %>
+    <%= button_tag(type: "submit", class: "btn_nav") do %>
       <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
     <% end %>
   </div>
 
   <div class="navbar-wagon-right">
-    <%= link_to "Bars", "bars", class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Events", "events", class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Bars", bars_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Events", events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% if user_signed_in? %>
 
     <!-- Links when logged in -->
+    <div class="navbar-wagon-right">
+    <%= link_to "Profile", profile_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    </div>
 
-    <!-- Avatar with dropdown menu -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% avatar_url = current_user.facebook_picture_url %>
@@ -68,7 +70,7 @@
     <%= text_field_tag(:keyword, nil, placeholder: "Keyword", class: "form-control") %>
     <%= text_field_tag(:location, nil, placeholder: "Location", class: "form-control") %>
     <%= text_field_tag(:date, nil, placeholder: "Date", class: "datepicker form-control") %>
-    <%= submit_tag("Search", class: "btn") %>
+    <%= submit_tag("Search", class: "btn_nav") %>
   <% end %>
   </div>
   </div> -->

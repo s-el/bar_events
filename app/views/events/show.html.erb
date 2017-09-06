@@ -14,9 +14,9 @@
       </div>
       <div class="details_box">
         <h3><%= @event.title %></h3>
-        <p class = "date_time"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+        <p class = "date_time"><i class="fa fa-calendar-o" class = "icon" aria-hidden="true"></i>
         <%= @event.date.strftime("%B %d") %></p>
-        <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= @event.start_time.strftime("%R") %> to <%= @event.end_time.strftime("%R") %> </p>
+        <p><i class="fa fa-clock-o" class = "icon" aria-hidden="true"></i><%= @event.start_time.strftime("%R") %> to <%= @event.end_time.strftime("%R") %> </p>
         <p><%= @event.description %></p>
       </div>
     </div>
@@ -26,16 +26,16 @@
       <ul class="list-inline">
       <li><h3>The Bar</h3></li>
       <%@event.bar.rating.times do %>
-      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+      <li><i class="fa fa-star" class = "icon" aria-hidden="true"></i></li>
       <%end %>
       </ul>
       </div>
       <h3><%= @event.bar.name %></h3>
 
-      <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @event.bar.location%></p>
+      <p><i class="fa fa-map-marker" class = "icon" aria-hidden="true"></i><%= @event.bar.location%></p>
       <ul class="list-inline">
       <%@event.bar.price_level.times do %>
-      <li><i class="fa fa-eur" aria-hidden="true"></i></li>
+      <li><i class="fa fa-eur" class = "icon" aria-hidden="true"></i></li>
       <%end %>
       </ul>
       <p><%= @event.bar.description %></p>
@@ -67,7 +67,7 @@
   <%= link_to events_path do%>
   <ul class = "list-inline">
     <li>
-      <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+      <i class="fa fa-chevron-circle-left" class = "icon" aria-hidden="true"></i>
       <%end %>
     </li>
     <li>
