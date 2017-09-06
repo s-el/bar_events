@@ -1,28 +1,42 @@
 <div class="container">
-  <div class="row">
     <div class="bars">
-    <h2>Your Bars</h2>
-      <% unless @bars.nil?%>
-      <ul>
-       <% @bars.each do |bar| %>
-         <li><%= bar.name %></li>
-         <li><%= link_to "Edit", edit_bar_path(bar) %></li>
-        <%end %>
-      </ul>
-     <%end %>
-     <li><%= link_to "Add bar", new_bar_path %></li>
-    </div>
-    <h2>Your Events</h2>
-     <div class="events">
-     <% unless @events.nil?%>
-      <ul>
-       <% @events.each do |event| %>
-       <li><%= event.title %></li>
-       <li><%= link_to "Edit", edit_event_path(event) %></li>
-       <%end %>
-       </ul>
-       <%end %>
-       <li><%= link_to "Add event", new_event_path %></li>
-    </div>
+
+      <h2>Your Bars</h2>
+
+        <% unless @bars.nil?%>
+          <div class="bar_item">
+            <ul>
+             <% @bars.each do |bar| %>
+              <li><%= link_to bar.name, bar_path(bar) %>
+                <%= link_to edit_bar_path(bar) do %>
+                  <i class="fa fa-pencil-square-o"></i>
+                <% end %>
+              </li>
+            <%end %>
+            </ul>
+            <%end %>
+          </div>
+          <%= link_to("Add bar", new_bar_path, class: "btn1")%>
+      </div>
+
+       <div class="events">
+
+         <h2>Your Events</h2>
+
+         <% unless @events.nil?%>
+         <div class="event_item">
+          <ul>
+            <% @events.each do |event| %>
+            <li><%= link_to event.title, event_path(event) %>
+              <%= link_to edit_event_path(event) do %>
+              <i class="fa fa-pencil-square-o"></i>
+              <% end %>
+            </li>
+           <%end %>
+          </ul>
+          <%end %>
+          </div>
+              <%= link_to("Add event", new_event_path, class: "btn1")%>
+        </div>
   </div>
-</div>
+

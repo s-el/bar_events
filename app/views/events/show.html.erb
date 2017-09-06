@@ -6,17 +6,38 @@
 <div class="container">
   <div class="event-container">
     <div class="details">
-      <h1><%= @event.title %></h1>
-      <p><%= @event.category %></p>
-      <p><%= @event.description %></p>
-      <p><%= @event.date %></p>
-      <p><%= @event.start_time %></p>
-      <p><%= @event.end_time %></p>
+      <div class="title">
+        <h1>The Event</h1>
+      </div>
+      <div class="category_box">
+        <p><%= @event.category %></p>
+      </div>
+      <div class="details_box">
+        <h3><%= @event.title %></h3>
+        <p class = "date_time"><i class="fa fa-calendar-o" aria-hidden="true"></i>
+        <%= @event.date.strftime("%B %d") %></p>
+        <p><i class="fa fa-clock-o" aria-hidden="true"></i><%= @event.start_time.strftime("%R") %> to <%= @event.end_time.strftime("%R") %> </p>
+        <p><%= @event.description %></p>
+      </div>
     </div>
 
     <div class="bar-details">
+      <div class="title">
+      <ul class="list-inline">
+      <li><h3>The Bar</h3></li>
+      <%@event.bar.rating.times do %>
+      <li><i class="fa fa-star" aria-hidden="true"></i></li>
+      <%end %>
+      </ul>
+      </div>
       <h3><%= @event.bar.name %></h3>
-      <p><%= @event.bar.location%></p>
+
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i><%= @event.bar.location%></p>
+      <ul class="list-inline">
+      <%@event.bar.price_level.times do %>
+      <li><i class="fa fa-eur" aria-hidden="true"></i></li>
+      <%end %>
+      </ul>
       <p><%= @event.bar.description %></p>
 
 
@@ -35,6 +56,12 @@
           <% end %>
         <% end %>
       </div>
+    </div>
+    <div class="reviews">
+      <div class="title">
+        <h1>Reviews</h1>
+      </div>
+
     </div>
     <div class = "return">
   <%= link_to events_path do%>

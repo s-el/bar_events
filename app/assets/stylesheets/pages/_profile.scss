@@ -1,0 +1,33 @@
+.bars, .events {
+  background: white;
+  margin: 20px;
+  padding: 20px;
+  position: relative;
+  height: 100%
+}
+
+ul {
+  list-style:none;
+}
+
+h2 {
+  margin-top: 0px;
+}
+
+.btn1 {
+background: #8B2635;
+border-radius: 2px;
+color: white;
+padding: 10px;
+position: absolute;
+right: 20px;
+bottom: 10px;
+width: 150px;
+text-align: center;
+  &:hover {
+    background: rgba(139, 38, 53, .6);
+    color:white;
+  }
+}
+
+

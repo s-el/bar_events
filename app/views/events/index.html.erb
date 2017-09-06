@@ -8,9 +8,9 @@
         </div>
         <div class="list-details">
             <h3><%= event.title %></h3>
-            <p><%=event.bar.name%></p>
-            <p><%=event.description%></p>
-            <p><%=event.category%></p>
+            <p class = "bar_name"><%=event.bar.name%></p>
+            <p class = "location"><%=event.bar.location%></p>
+            <p class = "category"><%=event.category%></p>
           <button class="list-callback">
           <%= link_to event_path(event) do%>
             <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
@@ -19,11 +19,11 @@
           <div class='list-bottom'>
             <div class='list-bottom-section'>
               <span>Start time</span>
-              <span><%=event.start_time%></span>
+              <span><%=event.start_time.strftime("%R")%></span>
             </div>
             <div class='list-bottom-section'>
               <span>End time</span>
-              <span><%=event.end_time%></span>
+              <span><%=event.end_time.strftime("%R")%></span>
             </div>
             <div class='list-bottom-section'>
               <span>Rating</span>

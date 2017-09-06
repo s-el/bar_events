@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904132625) do
+ActiveRecord::Schema.define(version: 20170905180818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,9 @@ ActiveRecord::Schema.define(version: 20170904132625) do
     t.time     "sat_end"
     t.time     "sun_start"
     t.time     "sun_end"
+    t.integer  "rating"
+    t.string   "category"
+    t.integer  "price_level"
     t.index ["user_id"], name: "index_bars_on_user_id", using: :btree
   end
 

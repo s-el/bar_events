@@ -46,6 +46,9 @@ gem 'simple_form_extension'
 #Search
 gem 'searchkick', '~> 1.3'
 
+#Seeding
+gem 'rest-client'
+
 
 group :development, :test do
   gem 'pry-byebug'

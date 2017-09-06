@@ -1,41 +1,91 @@
-<div class="event-photo" style="background-image: url(https://images.unsplash.com/photo-1433785069405-791b480d0a62?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=278f3a13fa6a61d3af44f4a553cab4c0) ">
-</div>
 
 <div class="container">
+  <div class="event-container">
     <div class="bar-details">
-      <h3><%= @bar.name %></h3>
-      <p><%= @bar.location%></p>
+      <img src="https://images.unsplash.com/photo-1436018626274-89acd1d6ec9d?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=980d2dbbbd8cbeadf5ca21bcce3aa717" class = "bar_pic"alt="">
+      <div class="title">
+        <h1><%= @bar.name %></h1>
+        <p><%= @bar.category %></p>
+      </div>
+      <ul class="list-inline">
+        <%@bar.rating.times do %>
+        <li><i class="fa fa-star" aria-hidden="true"></i></li>
+        <%end %>
+      </ul>
+      <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @bar.location%></p>
+      <p><i class="fa fa-globe" aria-hidden="true"></i><%= @bar.website %></p>
+      <ul class="list-inline">
+        <%@bar.price_level.times do %>
+        <li><i class="fa fa-eur" aria-hidden="true"></i></li>
+        <%end %>
+      </ul>
       <p><%= @bar.description %></p>
+    </div>
 
-
-      <div id="map" style="width: 300px; height: 300px;"></div>
-      <% content_for(:after_js) do %>
-        <%= javascript_tag do %>
-          $(document).ready(function() {
-            var handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function() {
-              markers = handler.addMarkers(<%= raw @bar_coordinates.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-              handler.getMap().setZoom(10);
-              });
-            });
+    <div class="right-side">
+      <div class="bar-details-two">
+        <div id="map" style="width: 100%; height: 200px;">
+          <% content_for(:after_js) do %>
+            <%= javascript_tag do %>
+              $(document).ready(function() {
+                var handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function() {
+                  markers = handler.addMarkers(<%= raw @bar_coordinates.to_json %>);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                  handler.getMap().setZoom(10);
+                  });
+                });
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+      </div>
+      <div class="bar-details-two">
+        <div class="title">
+          <h1>Upcoming Events</h1>
+        </div>
+        <div class="list-card">
+          <div class="date">
+            <h1><%=@bar.events.first.date.strftime("%d")%></h1>
+            <h4><%=@bar.events.first.date.strftime("%b")%></h4>
+          </div>
+          <div class="list-details">
+            <h3><%= @bar.events.first.title %></h3>
+            <p class = "category"><%=@bar.events.first.category%></p>
+            <button class="list-callback">
+            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+            </button>
+            <div class='list-bottom'>
+              <div class='list-bottom-section'>
+                <span>Start time</span>
+                <span><%=@bar.events.first.start_time.strftime("%R")%></span>
+              </div>
+              <div class='list-bottom-section'>
+                <span>End time</span>
+                <span><%=@bar.events.first.end_time.strftime("%R")%></span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class = "return">
-  <%= link_to bars_path do%>
-  <ul class = "list-inline">
-    <li>
-      <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
-      <%end %>
-    </li>
-    <li>
-      <p>See all Bars</p>
-    </li>
-  </ul>
-</div>
   </div>
-
+  <div class = "return">
+      <div class="title">
+        <h1>Reviews</h1>
+      </div>
+    </div>
+  <div class = "return">
+      <%= link_to bars_path do%>
+        <ul class = "list-inline">
+          <li>
+            <i class="fa fa-chevron-circle-left" aria-hidden="true">
+            </i>
+          </li>
+          <li>
+            <p>See all Bars</p>
+          </li>
+        </ul>
+      <%end %>
+  </div>
 </div>

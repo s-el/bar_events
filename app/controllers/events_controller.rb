@@ -22,18 +22,14 @@ class EventsController < ApplicationController
 
     if @events.blank?
       @events = Event.joins(:bar).where.not('bars.latitude IS NULL AND bars.longitude IS NULL')
-      # @events = Event.all
     else
       @events
     end
-        # if params[:keyword]
-          # @events = Event.where('category LIKE ?', "%#{params[:keyword]}%").all
-
 
         @hash = Gmaps4rails.build_markers(@events) do |event, marker|
           marker.lat event.bar.latitude
           marker.lng event.bar.longitude
-          # marker.infowindow render_to_string(partial: "/events/map_box", locals: { event: event })
+          marker.infowindow render_to_string(partial: "/events/map_box", locals: { event: event })
         end
 
   end
