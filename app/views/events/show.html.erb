@@ -31,8 +31,8 @@
       <%end %>
       </ul>
       </div>
-      <h3><%= @event.bar.name %></h3>
 
+      <h3><%= link_to @event.bar.name, bar_path(@event.bar) %></h3>
       <p><i class="fa fa-map-marker" class = "icon" aria-hidden="true"></i><%= @event.bar.location%></p>
       <ul class="list-inline">
       <%@event.bar.price_level.times do %>
