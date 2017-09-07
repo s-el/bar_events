@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :bars, only: [:index, :show, :new, :create, :edit, :update]
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
+  resources :bars do
+    resources :reviews, only: [ :index, :new, :create ]
+  end
+  resources :reviews, only: [ :show, :edit, :update, :destroy ]
 
   get "/profile", to: "pages#profile"
 end

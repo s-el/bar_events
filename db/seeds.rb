@@ -17,14 +17,6 @@ puts 'Creating users...'
 end
 
 puts 'Cleaning database...'
-sleep 1
-print "."
-sleep 1
-print "."
-sleep 1
-print "."
-sleep 1
-print "."
 Bar.destroy_all
 
 puts 'Creating bars...'
@@ -276,40 +268,22 @@ event_attributes = [
 Event.create!(event_attributes)
 puts 'Finished!'
 
+puts 'Cleaning database...'
+Review.destroy_all
+
+puts 'Creating reviews...'
+
+review_attributes = {
+    rating: 4,
+    content: "This is the best bar in the whole wide world!"
+}
+
+Bar.all.each do |bar|
+  2.times do
+    review = Review.new(rating: (1..5).to_a.sample, content: ["I loved it", "It was total crap", "I think this is the best bar ever"].sample)
+    review.bar = bar
+    review.save
+  end
+end
 
 
-# puts 'Creating bars...'
-# location_choices =
-# ['786 St. Johns Pl, Brooklyn, NY',
-#   '1168 Union St., Brooklyn, NY', #works
-#   '3 Lisa Court, Yorktown Heights, NY', #works
-#   'Crown Inn, Crown Heights, Brooklyn',
-#   'The Library Bar, New York City', #works
-#   'The Dead Rabbit, Financial District, NY',
-#   'Carroll Gardens, NY',
-#   'Nostrand Bar, Crown Heights, Brooklyn',
-#   'Two Saints, Crown Heights, Brooklyn', #works
-#   'East Village, New York' #works
-#   ]
-# location_choices.size.times do
-#   bar = Bar.new(
-#     name: Faker::Friends.location,
-#     location: location_choices.delete(location_choices.sample),
-#     # location: "#{(500..3000).to_a.sample} #{['Union Street', 'Broadway 5th Ave', 'Bedford Ave'].sample} New York City",
-#     description: Faker::Lorem.paragraph,
-#     website: Faker::Internet.url,
-#     user: User.all.order('RANDOM()').first()
-#     )
-#   bar.save!
-# end
-
-# puts 'Creating events...'
-# 20.times do
-#   event = Event.new(
-#     title: Faker::HowIMetYourMother.catch_phrase,
-#     category: ['live music', 'trivia', 'poetry reading', 'sports', 'comedy'].sample,
-#     bar: Bar.all.order('RANDOM()').first(),
-#     date: "2017-09-" + (10..14).to_a.sample.to_s
-#     )
-#   event.save!
-# end

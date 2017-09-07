@@ -49,6 +49,9 @@ gem 'searchkick', '~> 1.3'
 #Seeding
 gem 'rest-client'
 
+#Share
+gem 'social-share-button'
+
 
 group :development, :test do
   gem 'pry-byebug'

@@ -19,6 +19,7 @@
         <p><i class="fa fa-clock-o" class = "icon" aria-hidden="true"></i><%= @event.start_time.strftime("%R") %> to <%= @event.end_time.strftime("%R") %> </p>
         <p><%= @event.description %></p>
       </div>
+      <%= social_share_button_tag(@event.title) %>
     </div>
 
     <div class="bar-details">
@@ -50,37 +51,45 @@
               markers = handler.addMarkers(<%= raw @event_coordinates.to_json %>);
               handler.bounds.extendWith(markers);
               handler.fitMapToBounds();
-              handler.getMap().setZoom(10);
+              handler.getMap().setZoom(15);
               });
             });
           <% end %>
         <% end %>
       </div>
-    </div>
-    <div class="reviews">
+  </div>
+
+    <div class="return">
       <div class="title">
         <h1>Reviews</h1>
       </div>
-
-    </div>
-    <div class = "return">
-  <%= link_to events_path do%>
-  <ul class = "list-inline">
-    <li>
-      <i class="fa fa-chevron-circle-left" class = "icon" aria-hidden="true"></i>
+      <% @event.bar.reviews.each do |review|%>
+        <div class="review">
+          <ul class="list-inline">
+            <% if review.rating %>
+              <%review.rating.times do %>
+                <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <%end %>
+            <% end %>
+            <li class = "review_content"><%=review.content %></li>
+          </ul>
+        </div>
       <%end %>
-    </li>
-    <li>
-      <p>See all Events</p>
-    </li>
-  </ul>
-</div>
+    </div>
+    <%= link_to "Write review", new_bar_review_path(@event.bar), class: "btn3" %>
+
+    <div class = "return">
+      <%= link_to events_path do%>
+        <ul class = "list-inline">
+          <li>
+            <i class="fa fa-chevron-circle-left" class = "icon" aria-hidden="true"></i>
+          </li>
+      <%end %>
+          <li>
+            See all Events
+          </li>
+        </ul>
+    </div>
   </div>
-
-</div>
-
-
-
-
 
 

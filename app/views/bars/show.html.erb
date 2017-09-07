@@ -7,18 +7,22 @@
         <h1><%= @bar.name %></h1>
         <p><%= @bar.category %></p>
       </div>
-      <ul class="list-inline">
-        <%@bar.rating.times do %>
+      <% if @bar.rating.present? %>
+        <ul class="list-inline">
+          <%@bar.rating.times do %>
         <li><i class="fa fa-star" aria-hidden="true"></i></li>
         <%end %>
-      </ul>
+        </ul>
+      <% end %>
       <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @bar.location%></p>
       <p><i class="fa fa-globe" aria-hidden="true"></i><%= @bar.website %></p>
-      <ul class="list-inline">
-        <%@bar.price_level.times do %>
-        <li><i class="fa fa-eur" aria-hidden="true"></i></li>
-        <%end %>
-      </ul>
+      <% if @bar.price_level.present? %>
+        <ul class="list-inline">
+          <% @bar.price_level.times do %>
+            <li><i class="fa fa-eur" aria-hidden="true"></i></li>
+          <%end %>
+        </ul>
+      <%end %>
       <p><%= @bar.description %></p>
     </div>
 
@@ -33,7 +37,7 @@
                   markers = handler.addMarkers(<%= raw @bar_coordinates.to_json %>);
                   handler.bounds.extendWith(markers);
                   handler.fitMapToBounds();
-                  handler.getMap().setZoom(10);
+                  handler.getMap().setZoom(15);
                   });
                 });
             <% end %>
@@ -44,27 +48,31 @@
         <div class="title">
           <h1>Upcoming Events</h1>
         </div>
-        <div class="list-card">
-          <div class="date">
-            <h1><%=@bar.events.first.date.strftime("%d")%></h1>
-            <h4><%=@bar.events.first.date.strftime("%b")%></h4>
-          </div>
-          <div class="list-details">
-            <h3><%= @bar.events.first.title %></h3>
-            <p class = "category"><%=@bar.events.first.category%></p>
-            <button class="list-callback">
-            <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-            </button>
-            <div class='list-bottom'>
-              <div class='list-bottom-section'>
-                <span>Start time</span>
-                <span><%=@bar.events.first.start_time.strftime("%R")%></span>
-              </div>
-              <div class='list-bottom-section'>
-                <span>End time</span>
-                <span><%=@bar.events.first.end_time.strftime("%R")%></span>
-              </div>
+        <% if @bar.events.first.present? %>
+          <div class="list-card">
+            <div class="date">
+              <h1><%=@bar.events.first.date.strftime("%d")%></h1>
+              <h4><%=@bar.events.first.date.strftime("%b")%></h4>
             </div>
+            <div class="list-details">
+              <h3><%= @bar.events.first.title %></h3>
+              <p class = "category"><%=@bar.events.first.category%></p>
+              <button class="list-callback">
+              <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+              </button>
+              <div class='list-bottom'>
+                <div class='list-bottom-section'>
+                  <span>Start time</span>
+                  <span><%=@bar.events.first.start_time.strftime("%R")%></span>
+                </div>
+                <div class='list-bottom-section'>
+                  <span>End time</span>
+                  <span><%=@bar.events.first.end_time.strftime("%R")%></span>
+                </div>
+              </div>
+          <%else %>
+          <p>There are no upcoming events at this time. Check back soon!</p>
+          <%end %>
           </div>
         </div>
       </div>
@@ -74,6 +82,18 @@
       <div class="title">
         <h1>Reviews</h1>
       </div>
+      <% @bar.reviews.each do |review|%>
+        <div class="review">
+          <ul class="list-inline">
+              <% if review.rating %>
+                <%review.rating.times do %>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                <%end %>
+              <% end %>
+              <li class = "review_content"><%=review.content %></li>
+            </ul>
+        </div>
+        <% end %>
     </div>
   <div class = "return">
       <%= link_to bars_path do%>

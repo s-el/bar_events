@@ -6,4 +6,5 @@
 //= require underscore
 //= require gmaps/google
 //= require simple_form_extension
+//= require social-share-button
 //= require_tree .
