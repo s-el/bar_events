@@ -8,6 +8,7 @@
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "social-share-button";
 
 // Your CSS partials
 @import "layouts/index";
@@ -15,6 +16,5 @@
 @import "pages/index";
 
 //More
- @import "bootstrap-datepicker";
- @import "bootstrap-timepicker";
- @import "social-share-button";
+@import "bootstrap-datepicker";
+@import "bootstrap-timepicker";
