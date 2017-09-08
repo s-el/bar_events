@@ -10,8 +10,8 @@
       <% if @bar.rating.present? %>
         <ul class="list-inline">
           <%@bar.rating.times do %>
-        <li><i class="fa fa-star" aria-hidden="true"></i></li>
-        <%end %>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+          <%end %>
         </ul>
       <% end %>
       <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @bar.location%></p>
@@ -82,18 +82,20 @@
       <div class="title">
         <h1>Reviews</h1>
       </div>
-      <% @bar.reviews.each do |review|%>
-        <div class="review">
-          <ul class="list-inline">
+      <% if @bar.reviews.present?%>
+        <% @bar.reviews.each do |review|%>
+          <div class="review">
+            <ul class="list-inline">
               <% if review.rating %>
                 <%review.rating.times do %>
                   <li><i class="fa fa-star" aria-hidden="true"></i></li>
                 <%end %>
               <% end %>
-              <li class = "review_content"><%=review.content %></li>
+                  <li class = "review_content"><%=review.content %></li>
             </ul>
         </div>
-        <% end %>
+        <%end%>
+      <%end %>
     </div>
   <div class = "return">
       <%= link_to bars_path do%>
@@ -103,9 +105,11 @@
             </i>
           </li>
           <li>
-            <p>See all Bars</p>
+            See all Bars
           </li>
         </ul>
       <%end %>
   </div>
 </div>
+
+

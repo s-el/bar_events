@@ -49,8 +49,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @date = (params[:date])
+    @event.date = Date.strptime(event_params[:date], "%m/%d/%Y")
+    @event.start_time = params[:start_time]
+    @event.end_time = params[:end_time]
+
     @bars = Bar.where(user: current_user)
+
     if @event.save
       redirect_to event_path(@event)
     else

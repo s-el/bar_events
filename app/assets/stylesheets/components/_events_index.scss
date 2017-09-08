@@ -64,6 +64,11 @@
   text-align: center;
   align: center;
   margin-left: 20px;
+  &:hover {
+    color: white;
+    text-decoration: none;
+    background: rgba(139, 38, 53, .6);
+  }
 }
 
 // .filter {

@@ -1,4 +1,4 @@
-3 {
+h3 {
   text-align: center;
   font-weight: bolder;
   border-bottom: solid .5px #ededed;
@@ -36,5 +36,21 @@ text-align: center;
     background: rgba(139, 38, 53, .6);
     color:white;
   }
+}
+
+.login_button {
+background: white;
+border-radius: 2px;
+color: black;
+padding: 10px;
+margin-top: 30px;
+bottom: 10px;
+width: 150px;
+text-align: center;
+border: solid 1px #8B2635;
+margin: 2px;
+  &:hover {
+    background: rgba(139, 38, 53, .6);
+    color:white;
 
 }

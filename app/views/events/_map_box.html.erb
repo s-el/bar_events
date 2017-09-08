@@ -1,13 +1,10 @@
 <div class="list-card">
-  <div class="date_preview">
-    <h1><%=event.date.strftime("%d")%></h1>
-    <h4><%=event.date.strftime("%b")%></h4>
-  </div>
   <div class="list-details">
     <h3><%= event.title%></h3>
+    <h6><%= event.date.strftime("%B %d") %></h6>
     <p class = "bar_name"><%=event.bar.name%></p>
     <p class = "location"><%=event.bar.location%></p>
     <p class = "category"><%=event.category%></p>
-    <p><%= link_to "See details", "event_path(event)" %></p>
+    <p><%= link_to "See details", event_path(event) %></p>
   </div>
 </div>

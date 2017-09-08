@@ -48,11 +48,11 @@
     }
 }
 
-.reviews {
+.reviews_event {
   display: flex;
   background: white;
-  margin: 20px;
-  padding:20px;
+  padding:10px;
+  border-bottom: solid .5px #ededed;
 }
 
 .return {
@@ -104,6 +104,19 @@
   padding-right: 10px;
   font-size: 24px;
   color: #8B2635;
+}
+
+.bar_hover:hover {
+  text-decoration: none;
+  border-bottom: 1px solid #8B2635;
+  color: rgba(0, 0, 0, .9)
+}
+
+.ssb-icon {
+  background-size: 32px 32px;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
 }
 
 
