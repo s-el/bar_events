@@ -1,23 +1,32 @@
+
+ <div class="row">
 <div class="index-layout-bar">
-  <div class="bar_results">
+<div class="col-md-8">
+<div class="bar_results">
+
 
     <%@bars.each do |bar| %>
     <div class="bar_card">
       <img src="https://images.pexels.com/photos/331991/pexels-photo-331991.jpeg?w=940&h=650&auto=compress&cs=tinysrgb" class="photo" alt="">
       <div class="info">
-      <h1><%= link_to bar.name, bar_path(bar) %></h1>
-      <p><%= bar.location %></p>
-      <h3><%= bar.rating %></h3>
-      </div>
-
-      <div class="description">
-        <p><<%= bar.description%>/p>
+      <h2><%= link_to bar.name, bar_path(bar) %></h2>
+      <p class = "address"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= bar.location %></p>
+      <% if bar.rating.present? %>
+        <ul class="list-inline">
+          <%bar.rating.times do %>
+            <li><i class="fa fa-star" aria-hidden="true"></i></li>
+          <%end %>
+        </ul>
+      <%end %>
       </div>
     </div>
     <%end %>
   </div>
+</div>
+  <!-- <div class="row"> -->
+ <div class="col-md-4">
+  <div id="map" style="width: auto; height: 600px;"></div>
 
-  <div id="map" style="width: 100%; height: 600px;"></div>
 
   <% content_for(:after_js) do %>
     <%= javascript_tag do %>
@@ -36,5 +45,7 @@
       });
     <% end %>
   <% end %>
+  </div>
+
 </div>
 </div>
