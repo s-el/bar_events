@@ -8,3 +8,6 @@
 //= require simple_form_extension
 //= require social-share-button
 //= require_tree .
+//= require jquery-fileupload/basic
+//= require cloudinary/jquery.cloudinary
+//= require attachinary

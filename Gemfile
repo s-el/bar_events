@@ -20,9 +20,6 @@ gem 'uglifier'
 #seed
 gem 'faker'
 
-#images
-gem 'cloudinary'
-
 #dates
 gem 'bootstrap-datepicker-rails'
 # gem 'rails-assets-bootstrap-timepicker', source: 'https://rails-assets.org'
@@ -52,6 +49,10 @@ gem 'rest-client'
 #Share
 gem 'social-share-button'
 
+#Images
+gem 'cloudinary', '1.1.7'
+gem 'attachinary', github: 'assembler/attachinary'
+gem 'jquery-fileupload-rails'
 
 group :development, :test do
   gem 'pry-byebug'

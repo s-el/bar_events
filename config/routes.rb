@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  mount Attachinary::Engine => "/attachinary"
+
   resources :bars, only: [:index, :show, :new, :create, :edit, :update]
   resources :events, only: [:index, :show, :new, :create, :edit, :update]
   resources :bars do

@@ -1,4 +1,13 @@
+<div class="container-form">
 <h2>Sign up</h2>
+
+<%- if devise_mapping.omniauthable? %>
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "btn2 btn_signup"%><br />
+      <% end -%>
+    <% end -%>
+    <p class = "disclaimer">Don't worry, we never post on your behalf.</p>
+  <p class="line"><span>OR</span><p>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
@@ -10,8 +19,12 @@
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "btn2" %>
   </div>
 <% end %>
 
+<%- if controller_name != 'sessions' %>
+<p class = "simple_line">Already have an account? <%= link_to "Log in", new_session_path(resource_name), class: "simple_link_two" %></p>
+<% end -%>
 <%= render "devise/shared/links" %>
+</div>
