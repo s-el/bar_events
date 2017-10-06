@@ -12,12 +12,14 @@
           <h1><%= @bar.name %></h1>
           <p><%= @bar.category %></p>
         </div>
-        <% if @bar.rating.present? %>
+        <% if @bar.bar_rating.present? %>
           <ul class="list-inline">
-            <%@bar.rating.times do %>
+            <%@bar.bar_rating.times do %>
               <li><i class="fa fa-star" aria-hidden="true"></i></li>
             <%end %>
           </ul>
+          <%else %>
+          <p>No reviews</p>
         <% end %>
         <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @bar.location%></p>
         <p><i class="fa fa-globe" aria-hidden="true"></i><%= @bar.website %></p>
@@ -62,9 +64,11 @@
               <div class="list-details">
                 <h3><%= @bar.events.first.title %></h3>
                 <p class = "category"><%=@bar.events.first.category%></p>
-                <button class="list-callback">
-                  <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-                </button>
+                  <%= link_to event_path(@bar.events.first) do%>
+                  <button class="list-callback">
+                    <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                  </button>
+                <%end %>
                 <div class='list-bottom'>
                   <div class='list-bottom-section'>
                     <span>Start time</span>

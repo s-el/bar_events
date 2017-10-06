@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924124843) do
+ActiveRecord::Schema.define(version: 20170928154219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170924124843) do
     t.integer  "rating",      default: 0
     t.string   "category"
     t.integer  "price_level", default: 1
+    t.integer  "bar_rating",  default: 0, null: false
     t.index ["user_id"], name: "index_bars_on_user_id", using: :btree
   end
 

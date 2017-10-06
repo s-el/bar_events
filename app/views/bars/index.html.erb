@@ -11,12 +11,14 @@
       <div class="info">
       <h2><%= link_to bar.name, bar_path(bar) %></h2>
       <p class = "address"><i class="fa fa-map-marker" aria-hidden="true"></i> <%= bar.location %></p>
-      <% if bar.rating.present? %>
+      <% if bar.bar_rating.present? %>
         <ul class="list-inline">
-          <%bar.rating.times do %>
+          <%bar.bar_rating.times do %>
             <li><i class="fa fa-star" aria-hidden="true"></i></li>
           <%end %>
         </ul>
+        <%else %>
+        <p>No reviews</p>
       <%end %>
       </div>
     </div>
